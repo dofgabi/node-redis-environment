@@ -1,0 +1,12 @@
+version: "2.1"
+services:
+  node-redis:
+    container_name: node-redis
+    image: redis:3.2.4
+  node-redis-app:
+    container_name: node-redis-app
+    image: node:14.17.1-alpine
+    working_dir: /usr/src/node-app/
+    volumes:
+      - ./:/usr/src/node-app/
+    command: "npm run start"
